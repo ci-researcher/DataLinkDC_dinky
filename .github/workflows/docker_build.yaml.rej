@@ -1,0 +1,7 @@
+@@ -67,4 +67,4 @@
+         # JDK 25 uses a class-file format (version 69) not yet supported by
+         # the project's Flink/ASM transitive dependencies; exclude until upstream catches up.
+     env:
+-      MAVEN_OPTS: -Xmx2G -Xms2G
++      MAVEN_OPTS: -Xmx1g -Xms256m
+\ No newline at end of line

@@ -70,7 +70,8 @@ jobs:
         - 16
         - 17
         - 21
-        - 25
+        # JDK 25 uses a class-file format (version 69) not yet supported by
+        # the project's Flink/ASM transitive dependencies; exclude until upstream catches up.
     env:
       MAVEN_OPTS: -Xmx2G -Xms2G
     steps:
@@ -104,6 +105,7 @@ jobs:
                -Dspotless.check.skip=true \
                -Denforcer.skip=false \
                -Dmaven.javadoc.skip=true \
+               -Dmaven.compiler.release=11 \
                -P prod,flink-single-version,flink-${{ matrix.flink }},maven-central \
                --no-snapshot-updates
     - name: Upload artifact
